@@ -5,7 +5,7 @@ tags: hexo
 ---
 安装Hexo
 ----------
-```bash
+```js
   #修改npm下载路径
   $ npm install -g cnpm --registry=https://registry.npm.taobao.org
   #全局安装hexo
@@ -15,7 +15,7 @@ tags: hexo
 ----------
 本地运行hexo
 -------------
-```bash
+```js
 #初始化hexo
 $ hexo init
 #安装依赖包
