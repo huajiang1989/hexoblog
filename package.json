@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "hexo generate",
-    "start": "hexo server -p 3000",
+    "start": "hexo server -p 3300",
     "push":"hexo generate&&gulp&&cd public&&git add .&&git commit -m \"ssss\"&&git push -u origin master&&cd .."
   },
   "dependencies": {
