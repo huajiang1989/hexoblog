@@ -7,83 +7,83 @@ tags: koa
 
 Koa Request 对象是对 node 的 request 进一步抽象和封装，提供了日常 HTTP 服务器开发中一些有用的功能。
 <!--more-->
-API
---
-#req.header
+# API
+
+## req.header
 
 请求头对象
 
-#req.method
+## req.method
 
 请求方法
 
-#req.method=
+## req.method=
 
 设置请求方法，在实现中间件时非常有用，比如 methodOverride()。
 
-#req.length
+## req.length
 
 以数字的形式返回 request 的内容长度(Content-Length)，或者返回 undefined。
 
-#req.url
+## req.url
 
 获得请求url地址。
 
-#req.url=
+## req.url=
 
 设置请求地址，用于重写url地址时。
 
-#req.originalUrl
+## req.originalUrl
 
 获取请求原始地址。
 
-#req.path
+## req.path
 
 获取请求路径名。
 
-#req.path=
+## req.path=
 
 设置请求路径名，并保留请求参数(就是url中?后面的部分)。
 
-#req.querystring
+## req.querystring
 
 获取查询参数字符串(url中?后面的部分)，不包含 ?。
 
-#req.querystring=
+## req.querystring=
 
 设置查询参数。
 
-#req.search
+## req.search
 
 获取查询参数字符串，包含 ?。
 
-#req.search=
+## req.search=
 
 设置查询参数字符串。
 
-#req.host
+## req.host
 
 获取 host (hostname:port)。 当 app.proxy 设置为 true 时，支持 X-Forwarded-Host。
 
-#req.hostname
+## req.hostname
 
 获取 hostname。当 app.proxy 设置为 true 时，支持 X-Forwarded-Host。
 
-#req.type
+## req.type
 
 获取请求 Content-Type，不包含像 "charset" 这样的参数。
 ```js
 var ct = this.request.type;
 // => "image/png"
 ```
-#req.charset
+## req.charset
 
 获取请求 charset，没有则返回 undefined:
 ```js
 this.request.charset
 // => "utf-8"
 ```
-#req.query
+## req.query
 
 将查询参数字符串进行解析并以对象的形式返回，如果没有查询参数字字符串则返回一个空对象。
 
@@ -96,7 +96,7 @@ this.request.charset
   size: 'small'
 }
 ```
-#req.query=
+## req.query=
 
 根据给定的对象设置查询参数字符串。
 
@@ -104,7 +104,7 @@ this.request.charset
 ```js
 this.query = { next: '/login' };
 ```
-#req.fresh
+## req.fresh
 
 检查请求缓存是否 "fresh"(内容没有发生变化)。该方法用于在 If-None-Match / ETag, If-Modified-Since 和 Last-Modified 中进行缓存协调。当在 response headers 中设置一个或多个上述参数后，该方法应该被使用。
 ```js
@@ -120,27 +120,27 @@ if (this.fresh) {
 // fetch new data
 this.body = yield db.find('something');
 ```
-#req.stale
+## req.stale
 
 与 req.fresh 相反。
 
-#req.protocol
+## req.protocol
 
 返回请求协议，"https" 或者 "http"。 当 app.proxy 设置为 true 时，支持 X-Forwarded-Host。
 
-#req.secure
+## req.secure
 
 简化版 this.protocol == "https"，用来检查请求是否通过 TLS 发送。
 
-#req.ip
+## req.ip
 
 请求远程地址。 当 app.proxy 设置为 true 时，支持 X-Forwarded-Host。
 
-#req.ips
+## req.ips
 
 当 X-Forwarded-For 存在并且 app.proxy 有效，将会返回一个有序（从 upstream 到 downstream）ip 数组。 否则返回一个空数组。
 
-#req.subdomains
+## req.subdomains
 
 以数组形式返回子域名。
 
@@ -150,7 +150,7 @@ this.body = yield db.find('something');
 
 如果没有设置 app.subdomainOffset，其 subdomains 为 ["ferrets", "tobi"]。 如果设置 app.subdomainOffset 为3，其 subdomains 为 ["tobi"]。
 
-#req.is(type)
+## req.is(type)
 
 检查请求所包含的 "Content-Type" 是否为给定的 type 值。 如果没有 request body，返回 undefined。 如果没有 content type，或者匹配失败，返回 false。 否则返回匹配的 content-type。
 ```js
@@ -173,8 +173,8 @@ if (this.is('image/*')) {
   this.throw(415, 'images only!');
 }
 ```
-Content Negotiation
---
+# Content Negotiation
+
 Koa request 对象包含 content negotiation 功能（由 accepts 和 negotiator 提供）：
 ```js
 req.accepts(types)
@@ -188,7 +188,7 @@ req.acceptsLanguages(langs)
 
 为了防止缺少 accept headers 而导致可以接受任意类型，将会返回第一种类型。因此，您提供的类型顺序非常重要。
 
-#req.accepts(types)
+## req.accepts(types)
 
 检查给定的类型 types(s) 是否可被接受，当为 true 时返回最佳匹配，否则返回 false。type 的值可以是一个或者多个 mime 类型字符串。 比如 "application/json" 扩展名为 "json"，或者数组 ["json", "html", "text/plain"]。
 ```js
@@ -248,7 +248,7 @@ this.acceptsEncodings();
 ```
 注意：如果客户端直接发送 identity;q=0 时，identity encoding（表示no encoding） 可以不被接受。虽然这是一个边界情况，您仍然应该处理这种情况。
 
-#req.acceptsCharsets(charsets)
+## req.acceptsCharsets(charsets)
 
 检查 charsets 是否可以被接受，如果为 true 则返回最佳匹配， 否则返回 false。
 ```js
@@ -281,14 +281,14 @@ this.acceptsLanguages(['en', 'es']);
 this.acceptsLanguages();
 // => ["es", "pt", "en"]
 ```
-#req.idempotent
+## req.idempotent
 
 检查请求是否为幂等(idempotent)。
 
-#req.socket
+## req.socket
 
 返回请求的socket。
 
-#req.get(field)
+## req.get(field)
 
 返回请求 header 中对应 field 的值。

@@ -20,15 +20,15 @@ app.use(function *(){
 ```
 许多 context 的访问器和方法为了便于访问和调用，简单的委托给他们的 ctx.request 和 ctx.response 所对应的等价方法， 比如说 ctx.type 和 ctx.length 代理了 response 对象中对应的方法，ctx.path 和 ctx.method 代理了 request 对象中对应的方法。
 
-API
---
+# API
+
 Context 详细的方法和访问器。
 
-#ctx.req
+## ctx.req
 
 Node 的 request 对象。
 
-#ctx.res
+## ctx.res
 
 Node 的 response 对象。
 
@@ -42,22 +42,22 @@ ctx.request
 ```
 Koa 的 Request 对象。
 
-#ctx.response
+## ctx.response
 
 Koa 的 Response 对象。
 
-#ctx.app
+## ctx.app
 
 应用实例引用。
 
-#ctx.cookies.get(name, [options])
+## ctx.cookies.get(name, [options])
 
 获得 cookie 中名为 name 的值，options 为可选参数：
 
 'signed': 如果为 true，表示请求时 cookie 需要进行签名。
 注意：Koa 使用了 Express 的 cookies 模块，options 参数只是简单地直接进行传递。
 
-#ctx.cookies.set(name, value, [options])
+## ctx.cookies.set(name, value, [options])
 
 设置 cookie 中名为 name 的值，options 为可选参数：
 ```bash
@@ -69,7 +69,7 @@ secure: false 表示 cookie 通过 HTTP 协议发送，true 表示 cookie 通过
 httpOnly: true 表示 cookie 只能通过 HTTP 协议发送
 注意：Koa 使用了 Express 的 cookies 模块，options 参数只是简单地直接进行传递。
 ```
-#ctx.throw(msg, [status])
+## ctx.throw(msg, [status])
 
 抛出包含 .status 属性的错误，默认为 500。该方法可以让 Koa 准确的响应处理状态。 Koa支持以下组合：
 ```js
@@ -85,14 +85,14 @@ throw err;
 ```
 注意：这些用户级错误被标记为 err.expose，其意味着这些消息被准确描述为对客户端的响应，而并非使用在您不想泄露失败细节的场景中。
 
-#ctx.respond
+## ctx.respond
 
 为了避免使用 Koa 的内置响应处理功能，您可以直接赋值 this.repond = false;。如果您不想让 Koa 来帮助您处理 reponse，而是直接操作原生 res 对象，那么请使用这种方法。
 
 注意： 这种方式是不被 Koa 支持的。其可能会破坏 Koa 中间件和 Koa 本身的一些功能。其只作为一种 hack 的方式，并只对那些想要在 Koa 方法和中间件中使用传统 fn(req, res) 方法的人来说会带来便利。
 
-Request aliases
---
+# Request aliases
+
 以下访问器和别名与 Request 等价：
 ```js
 ctx.header
@@ -124,8 +124,8 @@ ctx.acceptsCharsets()
 ctx.acceptsLanguages()
 ctx.get()
 ```
-Response aliases
---
+# Response aliases
+
 以下访问器和别名与 Response 等价：
 ```js
 ctx.body

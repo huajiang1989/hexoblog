@@ -5,8 +5,8 @@ category: webpack
 tags: webpack
 ---
 
-webpack特性
---
+# webpack特性
+
 webpack具有requireJs和browserify的功能，但仍有很多自己的新特性：
 ```bash
 1. 对 CommonJS 、 AMD 、ES6的语法做了兼容
@@ -20,8 +20,8 @@ webpack具有requireJs和browserify的功能，但仍有很多自己的新特性
 
 ```
 <!--more-->
-React-sample
---
+# React-sample
+
 以 react-sample 为例，简单说明 webpack 如何打包一个 React 组件，其目录结构如下：
 
 
@@ -95,9 +95,9 @@ module.exports = {
 ```
 整个代码在 这里，clone之后，切换到react-sample目录下，在终端运行 npm i && npm run build 进行打包，打包后的文件名是 bundle.js， 所在相对目录是 /assets。至此，webpack打包过程就Ok了。
 
-Webpack安装和配置
---
-##安装
+# Webpack安装和配置
+
+## 安装
 
 webpack 可以作为全局的npm模块安装，也可以在当前项目中安装。
 ```bash
@@ -108,13 +108,13 @@ npm install --save-dev webpack
 ```bash
 webpack —config webpack.custom.config.js
 ```
-##配置
+## 配置
 
 每个项目下都必须配置有一个 webpack.config.js ，它的作用如同常规的 gulpfile.js/Gruntfile.js ，就是一个配置项，告诉 webpack 它需要做什么。
 
 前文说了，webpack.config.js文件通常放在项目的根目录中，它本身也是一个标准的Commonjs规范的模块。在导出的配置对象中有几个关键的参数：
 
-##entry
+## entry
 
 entry参数定义了打包后的入口文件，可以是个字符串或数组或者是对象；如果是数组，数组中的所有文件会打包生成一个filename文件；如果是对象，可以将不同的文件构建成不同的文件:
 ```js
@@ -134,7 +134,7 @@ entry参数定义了打包后的入口文件，可以是个字符串或数组或
 ```
 该段代码最终会生成一个 page1.bundle.js 和 page2.bundle.js，并存放到 ./dist/js/page 文件夹下
 
-##output
+## output
 
 output参数是个对象，定义了输出文件的位置及名字：
 ```js
@@ -151,7 +151,7 @@ filename:打包后的文件名
 ```
 当我们在entry中定义构建多个文件时，filename可以对应的更改为[name].js用于定义不同文件构建后的名字。
 
-##module
+## module
 
 在webpack中JavaScript，CSS，LESS，TypeScript，JSX，CoffeeScript，图片等静态文件都是模块，不同模块的加载是通过模块加载器（webpack-loader）来统一管理的。loaders之间是可以串联的，一个加载器的输出可以作为下一个加载器的输入，最终返回到JavaScript上：
 ```js
@@ -196,7 +196,7 @@ require("!style!css!less!bootstrap/less/bootstrap.less");
 ```
 require()时指定的loader会覆盖配置文件里对应的loader配置项。
 
-##resolve
+## resolve
 
 webpack在构建包的时候会按目录的进行文件的查找，resolve属性中的extensions数组中用于配置程序可以自行补全哪些文件后缀：
 ```js
@@ -219,7 +219,7 @@ webpack在构建包的时候会按目录的进行文件的查找，resolve属性
 
 注意一下, extensions 第一个是空字符串! 对应不需要后缀的情况.
 
-##plugin
+## plugin
 
 webpack提供了[丰富的组件]用来满足不同的需求，当然我们也可以自行实现一个组件来满足自己的需求：
 ```js
@@ -236,7 +236,7 @@ plugins: [
     new ExtractTextPlugin('styles.css')
 ]
 ```
-##externals
+## externals
 
 当我们想在项目中require一些其他的类库或者API，而又不想让这些类库的源码被构建到运行时文件中，这在实际开发中很有必要。此时我们就可以通过配置externals参数来解决这个问题：
 ```js
@@ -246,7 +246,7 @@ plugins: [
 ```
 这样我们就可以放心的在项目中使用这些API了：var jQuery = require("jquery");
 
-##context
+## context
 
 当我们在require一个模块的时候，如果在require中包含变量，像这样：
 ```js
@@ -265,9 +265,9 @@ require("./mods/" + name + ".js");
 ```
 关于 webpack.config.js 更详尽的配置可以参考这里
 
-webpack常用命令
---
-##webpack的使用通常有三种方式：
+# webpack常用命令
+
+## webpack的使用通常有三种方式：
 
 1、命令行使用：webpack <entry.js> <result.js> 其中entry.js是入口文件，result.js是打包后的输出文件
 2、node.js API使用：
@@ -301,7 +301,7 @@ webpack --display-modules #默认情况下 node_modules 下的模块会被隐藏
 
 图片打包和静态资源服务器
 --
-##图片打包
+## 图片打包
 
 webpack中对于图片的处理，可以通过url-loader来实现图片的压缩。
 ```css
@@ -326,7 +326,7 @@ module: {
 ```
 对于上面的配置，如果图片资源小于10kb就会转化成 base64 格式的 dataUrl，其他的图片会存放在build/文件夹下。
 
-##静态资源服务器
+## 静态资源服务器
 
 除了提供模块打包功能，Webpack还提供了一个基于Node.js Express框架的开发服务器，它是一个静态资源Web服务器，对于简单静态页面或者仅依赖于独立服务的前端页面，都可以直接使用这个开发服务器进行开发。在开发过程中，开发服务器会监听每一个文件的变化，进行实时打包，并且可以推送通知前端页面代码发生了变化，从而可以实现页面的自动刷新。
 

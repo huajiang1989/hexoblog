@@ -7,25 +7,25 @@ tags: koa
 
 Koa Response 对象是对 node 的 response 进一步抽象和封装，提供了日常 HTTP 服务器开发中一些有用的功能。
 <!--more-->
-API
---
-#res.header
+# API
+
+## res.header
 
 Response header 对象。
 
-#res.socket
+## res.socket
 
 Request socket。
 
-#res.status
+## res.status
 
 获取 response status。不同于 node 在默认情况下 res.statusCode 为200，res.status 并没有赋值。
 
-#res.statusString
+## res.statusString
 
 Response status 字符串。
 
-#res.status=
+## res.status=
 
 通过 数字状态码或者不区分大小写的字符串来设置response status：
 ```bash
@@ -88,19 +88,19 @@ Response status 字符串。
 ```
 注意：不用担心记不住这些字符串，如果您设置错误，会有异常抛出，并列出该状态码表来帮助您进行更正。
 
-#res.length=
+## res.length=
 
 通过给定值设置 response Content-Length。
 
-#res.length
+## res.length
 
 如果 Content-Length 作为数值存在，或者可以通过 res.body 来进行计算，则返回相应数值，否则返回 undefined。
 
-#res.body
+## res.body
 
 获得 response body。
 
-#res.body=
+## res.body=
 
 设置 response body 为如下值：
 ```js
@@ -130,7 +130,7 @@ Content-Type 默认为 application/octet-stream。
 
 Content-Type 默认为 application/json。
 
-#res.get(field)
+## res.get(field)
 
 获取 response header 中字段值，field 不区分大小写。
 ```js
@@ -149,18 +149,18 @@ this.set({
   'Last-Modified': date
 });
 ```
-#res.remove(field)
+## res.remove(field)
 
 移除 response header 中字段 filed。
 
-#res.type
+## res.type
 
 获取 response Content-Type，不包含像 "charset" 这样的参数。
 ```js
 var ct = this.type;
 // => "image/png"
 ```
-#res.type=
+## res.type=
 
 通过 mime 类型的字符串或者文件扩展名设置 response Content-Type
 ```js
@@ -171,7 +171,7 @@ this.type = 'png';
 ```
 注意：当可以根据 res.type 确定一个合适的 charset 时，charset 会自动被赋值。 比如 res.type = 'html' 时，charset 将会默认设置为 "utf-8"。然而当完整定义为 res.type = 'text/html'时，charset 不会自动设置。
 
-#res.redirect(url, [alt])
+## res.redirect(url, [alt])
 
 执行 [302] 重定向到对应 url。
 
@@ -191,30 +191,30 @@ res.attachment([filename])
 ```
 设置 "attachment" 的 Content-Disposition，用于给客户端发送信号来提示下载。filename 为可选参数，用于指定下载文件名。
 
-#res.headerSent
+## res.headerSent
 
 检查 response header 是否已经发送，用于在发生错误时检查客户端是否被通知。
 
-#res.lastModified
+## res.lastModified
 
 如果存在 Last-Modified，则以 Date 的形式返回。
 
-#res.lastModified=
+## res.lastModified=
 
 以 UTC 格式设置 Last-Modified。您可以使用 Date 或 date 字符串来进行设置。
 ```js
 this.response.lastModified = new Date();
 ```
-#res.etag=
+## res.etag=
 
 设置 包含 "s 的 ETag。注意没有对应的 res.etag 来获取其值。
 ```js
 this.response.etag = crypto.createHash('md5').update(this.body).digest('hex');
 ```
-#res.append(field, val)
+## res.append(field, val)
 
 在 header 的 field 后面 追加 val。
 
-#res.vary(field)
+## res.vary(field)
 
 相当于执行res.append('Vary', field)。
