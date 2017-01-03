@@ -2,9 +2,9 @@
 title: 使用node和git搭建Hexo博客
 category: hexo
 tags: hexo
+date: 2016-11-01
 ---
-安装Hexo
-----------
+# 安装Hexo
 ```js
   #修改npm下载路径
   $ npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -13,8 +13,8 @@ tags: hexo
 ```
 <!--more-->
 ----------
-本地运行hexo
--------------
+# 本地运行hexo
+
 ```js
 #初始化hexo
 $ hexo init
@@ -26,8 +26,8 @@ $ hexo s -g
 #按住Ctrl+C键即可停止
 
 ```
-hexo配置信息
----
+# hexo配置信息
+
 ```js
 #博客名称
 title: Mr.hua

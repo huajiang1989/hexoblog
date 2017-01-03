@@ -2,6 +2,7 @@
 title: 使用gulp对Hexo性能优化篇
 category: hexo
 tags: hexo
+date: 2016-11-01
 ---
 
 
