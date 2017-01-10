@@ -4,6 +4,7 @@ title:  Angular.element和$document的使用方法分析，代替jquery
 category: angular
 tags: angular
 ---
+厉害了我的哥
 AngularJs是不直接操作DOM的，但是在平时的开发当中，我们有的时候还是需要操作一些DOM的，如果使用原生的JS的话操作过于麻烦，所以大家一般都是使用jQuery，jQuery虽然好用，但是AngularJs是不建议和JQuery同时使用的，所以AngularJs给我们也提供了一些操作DOM的方法———Jqlite
 <!--more-->
 下面以addClass（）方法为例给大家讲解一下Jqlite的使用：
