@@ -1,8 +1,8 @@
 
 ---
 title:  nodejs co模块实现异步操作
-category:  es6
-tags: Promise
+category:  nodejs
+tags: nodejs
 ---
 
 nodejs co模块实现异步操作

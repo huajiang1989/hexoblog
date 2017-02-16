@@ -1,7 +1,7 @@
 ---
 title: ES5中获取顶层变量的方法
-category: es6
-tags: es6
+category: js
+tags: js
 ---
 ES5的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。
 

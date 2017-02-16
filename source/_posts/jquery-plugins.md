@@ -1,7 +1,7 @@
 ---
 title: Jquery插件开发入门
-category: jquery
-tags: jquery
+category: js
+tags: js
 ---
 扩展jQuery插件和方法的作用是非常强大的，它可以节省大量开发时间。这篇文章将概述jQuery插件开发的基本知识，最佳做法和常见的陷阱。
 <!--more-->

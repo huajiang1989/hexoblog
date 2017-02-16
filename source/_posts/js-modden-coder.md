@@ -1,7 +1,7 @@
 ---
 title:  JavaScript 模块化编程 - Module Pattern
-category: es6
-tags: es6
+category: js
+tags: js
 ---
 前言
 

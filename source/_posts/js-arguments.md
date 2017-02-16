@@ -1,7 +1,7 @@
 ---
 title:   js使用 arguments 参数实现函数重载
-category: es6
-tags: es6
+category: js
+tags: js
 ---
 
 arguments

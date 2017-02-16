@@ -1,8 +1,8 @@
 
 ---
 title:  js使用Async/Await实现异步操作
-category:  es6
-tags: Async
+category:  js
+tags: js
 ---
 
 Async/Await是ES7提出的js异步操作解决方案

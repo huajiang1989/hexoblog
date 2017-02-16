@@ -1,6 +1,6 @@
 ---
 title:   Javascript函数、递归与闭包
-tags: es6
+tags: js
 ---
 # 函数表达式
 

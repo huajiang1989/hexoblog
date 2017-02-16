@@ -1,6 +1,6 @@
 ---
 title:   JS中的 call和apply的区别和作用
-tags: es6
+tags: js
 ---
 
 Javascript的每个Function对象中有一个apply方法：
