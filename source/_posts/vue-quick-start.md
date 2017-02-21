@@ -1,8 +1,8 @@
 
 ---
 title:  Vue2 移动端开发环境搭建
-category: Vue
-tags: Vue
+category: vue
+tags: vue
 ---
 
 本文给出基于 Vue2 的移动端环境搭建，移动端大家更多想到的是响应布局，我们根据不同大小的屏幕进行适配，当然少不了我们的重头戏 rem，移动端相比 pc 端就没什么特别的了。
